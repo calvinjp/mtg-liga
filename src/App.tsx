@@ -1,7 +1,13 @@
+import { Container } from "@mui/material";
 import "./App.css";
+import SideNavigationBar from "./components/side-navigation-bar";
 
 function App() {
-  return <>Okay for real this time</>;
+  return (
+    <Container>
+      <SideNavigationBar />
+    </Container>
+  );
 }
 
 export default App;
