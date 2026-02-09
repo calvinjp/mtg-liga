@@ -1,15 +1,20 @@
 import { Box, Button, Container } from "@mui/material";
 
 const navigationTabs = ["About Me", "Contacts", "Demos"];
-function SideNavigationBar() {
+function TopNavigationBar() {
   return (
-    <Container>
+    <Container
+      sx={{
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
-          flexDirection: { xs: "row", md: "column" },
-          justifyContent: "space-between",
-          gap: 4,
+          flexDirection: "row",
+          justifyContent: "center",
+          gap: 2,
         }}
       >
         {navigationTabs.map((tab) => (
@@ -18,9 +23,8 @@ function SideNavigationBar() {
           </Button>
         ))}
       </Box>
-      ;
     </Container>
   );
 }
 
-export default SideNavigationBar;
+export default TopNavigationBar;
