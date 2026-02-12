@@ -1,12 +1,17 @@
 import { Box, Button, Container } from "@mui/material";
 
-const navigationTabs = ["About Me", "Contacts", "Demos"];
+const navigationTabs = ["About Me", "Contacts", "Demos", "Download Resume"];
 function TopNavigationBar() {
   return (
     <Container
       sx={{
         display: "flex",
         alignItems: "center",
+        backgroundColor: "#FF7F11",
+        maxWidth: 1,
+        minWidth: 1,
+        padding: 2,
+        justifyContent: "flex-end",
       }}
     >
       <Box
@@ -18,7 +23,7 @@ function TopNavigationBar() {
         }}
       >
         {navigationTabs.map((tab) => (
-          <Button key={tab} variant="contained">
+          <Button sx={{ fontFamily: "Inter" }} key={tab}>
             {tab}
           </Button>
         ))}

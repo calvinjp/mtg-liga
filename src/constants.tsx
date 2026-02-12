@@ -12,7 +12,7 @@ export const WORK_EXPERIENCE_DESC =
   "were responsible for tasks which include retrieving and updating" +
   "data from DynamoDB and uploading files to S3 buckets ●" +
   "Experience reading and updating Swagger API Documentation and" +
-  "testing endpoints through Postman ● Created and updated JIRA" +
+  "testing endpoints through Postman ● Something something JIRA" +
   "tickets for Sprints (Agile) ● Worked on UI redesign for web" +
   "application dashboard, navigation sidepanel, etc. using" +
   "AngularJS ● Used Jest in creating unit tests ● Edited API" +
