@@ -1,9 +1,9 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 type InfoCardProps = {
   title: string;
   description: string;
-  subtitle?: string;
+  bullets?: string[];
 };
 function InfoCard(infoCardProps: InfoCardProps) {
   return (
@@ -27,17 +27,24 @@ function InfoCard(infoCardProps: InfoCardProps) {
           {infoCardProps.title}
         </Typography>
         <Typography
-          variant="h2"
-          sx={{ color: "secondary.main", fontFamily: "Inter" }}
-        >
-          {infoCardProps?.subtitle}
-        </Typography>
-        <Typography
           variant="h3"
           sx={{ color: "primary.main", fontFamily: "Inter" }}
         >
           {infoCardProps.description}
         </Typography>
+
+        {infoCardProps.bullets && (
+          <Box
+            component="ul"
+            sx={{ color: "primary.main", fontFamily: "Inter", mt: 1 }}
+          >
+            {infoCardProps.bullets.map((item, index) => (
+              <li key={index}>
+                <Typography variant="body1">{item}</Typography>
+              </li>
+            ))}
+          </Box>
+        )}
       </Box>
     </>
   );
