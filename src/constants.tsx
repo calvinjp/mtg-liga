@@ -20,4 +20,4 @@ export const WORK_EXPERIENCE_DESC =
   "responsible for sending in-app and email notifications to users" +
   "● Created endpoints for updating and retrieving data from" +
   "Firestore";
-export const PERSONAL_PROJECTS_DESC = "This Website :3 MTG Leaderboards";
+export const PERSONAL_PROJECTS_DESC = "This Website";

@@ -1,7 +1,13 @@
 import { Box, Button, Container } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-const navigationTabs = ["About Me", "Contacts", "Demos", "Download Resume"];
+// const navigationTabs = ["About Me", "Contacts", "Demos", "Download Resume"];
 function TopNavigationBar() {
+  const navigate = useNavigate();
+
+  function handleLogin(url: string) {
+    navigate("/" + url);
+  }
   return (
     <Container
       sx={{
@@ -22,11 +28,20 @@ function TopNavigationBar() {
           gap: 2,
         }}
       >
-        {navigationTabs.map((tab) => (
+        {/* {navigationTabs.map((tab) => (
           <Button sx={{ fontFamily: "Inter" }} key={tab}>
             {tab}
           </Button>
-        ))}
+        ))} */}
+        <Button sx={{ fontFamily: "Inter" }} onClick={() => handleLogin("")}>
+          About Me
+        </Button>
+        <Button
+          sx={{ fontFamily: "Inter" }}
+          onClick={() => handleLogin("demos")}
+        >
+          Demos
+        </Button>
       </Box>
     </Container>
   );
