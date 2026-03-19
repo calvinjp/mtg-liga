@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import InfoCard from "../components/info-card";
+import Counter from "../components/counter";
 
 const Review = () => {
   function sampleFunction() {}
@@ -136,6 +137,7 @@ const Review = () => {
         padding: 10,
       }}
     >
+      {/* <Counter /> */}
       <Typography
         variant="h1"
         sx={{

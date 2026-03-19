@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function TopNavigationBar() {
   const navigate = useNavigate();
 
-  function handleLogin(url: string) {
+  function handleNavigate(url: string) {
     navigate("/" + url);
   }
   return (
@@ -33,12 +33,12 @@ function TopNavigationBar() {
             {tab}
           </Button>
         ))} */}
-        <Button sx={{ fontFamily: "Inter" }} onClick={() => handleLogin("")}>
+        <Button sx={{ fontFamily: "Inter" }} onClick={() => handleNavigate("")}>
           About Me
         </Button>
         <Button
           sx={{ fontFamily: "Inter" }}
-          onClick={() => handleLogin("demos")}
+          onClick={() => handleNavigate("demos")}
         >
           Demos
         </Button>
