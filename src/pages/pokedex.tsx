@@ -41,6 +41,30 @@ const Pokedex = () => {
     getDesc();
   }, [selected]);
 
+  function handeNext() {
+    const currentIndex = data.findIndex((pokemon) => pokemon.name === selected);
+
+    if (currentIndex === -1) return;
+
+    const nextIndex = currentIndex + 1;
+
+    if (nextIndex < data.length) {
+      setSelected(data[nextIndex].name);
+    }
+  }
+
+  function handlePrev() {
+    const currentIndex = data.findIndex((pokemon) => pokemon.name === selected);
+
+    if (currentIndex === -1) return;
+
+    const prevIndex = currentIndex - 1;
+
+    if (prevIndex < data.length) {
+      setSelected(data[prevIndex].name);
+    }
+  }
+
   return (
     <Box
       sx={{
@@ -68,11 +92,16 @@ const Pokedex = () => {
           setSelected(e.target.value);
         }}
       >
-        {data.map((pokemon) => (
-          <option key={pokemon.name} value={pokemon.name}>
-            {pokemon.name}
-          </option>
-        ))}
+        {data.map(
+          (
+            pokemon,
+            // see note on arrow functions in messenger
+          ) => (
+            <option key={pokemon.name} value={pokemon.name}>
+              {pokemon.name}
+            </option>
+          ),
+        )}
       </select>
       {selected && ( // && is conditional rendering
         <>
@@ -99,6 +128,8 @@ const Pokedex = () => {
           <img src={sprite} style={{ height: "450px", width: "450px" }}></img>
         </>
       )}
+      <button onClick={() => handeNext()}>Next</button>
+      <button onClick={() => handlePrev()}>Prev</button>
     </Box>
   );
 };
