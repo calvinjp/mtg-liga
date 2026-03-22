@@ -116,9 +116,9 @@ const Pokedex = () => {
             {selected}
           </Typography>
           <Typography
-            variant="h1"
+            variant="h2"
             sx={{
-              color: "#FF7F11",
+              color: "black",
               fontFamily: "Space Grotesk",
               fontWeight: "600",
             }}
