@@ -3,128 +3,17 @@ import InfoCard from "../components/info-card";
 import Counter from "../components/counter";
 
 const Review = () => {
-  function sampleFunction() {}
+  function sampleFunction(arr1: any[]) {
+    return arr1.filter((item) => item.name).map((item) => item.name);
+    // let nameArray = [];
 
-  // //OBJECT DESTRUCTURING
-  // const user = { name: "Alex", age: 5, address: { city: "bulacan" } };
-
-  // const {
-  //   name,
-  //   age,
-  //   address: { city },
-  // } = user;
-  // console.log(name, age, city);
-
-  // //SPREAD OPERATOR
-  // const a = [1, 2, 3];
-  // const b = [4, 5, 6];
-  // const c = [...a, ...b];
-  // console.log(c);
-
-  // const newUser = { ...user };
-  // console.log(newUser);
-  // //REST PARAMETER
-  // function sum(...numbers: number[]) {
-  //   console.log(numbers);
-  // }
-  // sum(1, 5, 9);
-
-  // //ARRAY METHODS
-  // const numbers = [3, 3, 4, 5, 6];
-  // const doubled = numbers.map((item) => item * 2);
-  // console.log(doubled);
-  // console.log(numbers.filter((item) => item === 3));
-  // console.log(numbers.reduce((acc, item) => acc + item, 0));
-  // // reduce((accumulator, currentValue) => {}, initialValue);
-  // console.log(numbers.find((item) => item === 3));
-  // console.log(numbers.some((item) => item > 7));
-  // console.log(numbers.some((item) => item < 7));
-
-  // //SLICE VS SPLICE
-  // const arr1 = [1, 2, 3, 4, 5, 6];
-  // const arrSlice = arr1.slice(1, 4);
-  // console.log(arrSlice); //slice does not modify orig array
-  // arr1.splice(1, 2);
-  // console.log(arr1); //modifies orig array
-
-  // const users = [
-  //   { name: "Alex", age: 20 },
-  //   { name: "Sam", age: 16 },
-  //   { name: "John", age: 25 },
-  // ];
-
-  // console.log(users.filter((user) => user.age > 18).map((user) => user.name));
-
-  // //ASYNC CODE
-  // //callback function
-  // function greet(name: string, callback: any) {
-  //   console.log("Hello " + name);
-  //   callback();
-  // }
-
-  // greet("Alex", function () {
-  //   console.log("Welcome!");
-  // });
-
-  // setTimeout(() => {
-  //   console.log("Timer finished");
-  // }, 2000);
-
-  // //PROMISES
-  // const promise = new Promise((resolve, reject) => {
-  //   resolve("Success");
-  // });
-
-  // promise.then((result) => console.log(result));
-
-  // const fetchData = new Promise((resolve, reject) => {
-  //   setTimeout(() => {
-  //     resolve("Data received");
-  //   }, 1000);
-  // });
-
-  // fetchData.then((data) => {
-  //   console.log(data);
-  // });
-
-  // // ASYNC AWAIT
-
-  // function fetchDataNew() {
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve("Data ploopy");
-  //     }, 1000);
-  //   });
-  // }
-
-  // async function newFetch() {
-  //   const results = await fetchDataNew();
-  //   console.log(results);
-  // }
-  // newFetch();
-
-  //fixing reference by creating SHALLOW COPY
-  const obj1 = { name: "Alex" };
-  const obj2 = { ...obj1 };
-
-  obj2.name = "John";
-  console.log(obj1.name);
-
-  const obj3 = {
-    name: "Alex",
-    address: {
-      city: "Bulacan",
-    },
-  };
-
-  const obj4 = { ...obj3 };
-
-  // obj4.address.city = "Manila";
-
-  console.log(obj3.address.city); //still outputs manila since nested values are still references
-  const obj5 = structuredClone(obj3);
-  obj5.address.city = "Manila";
-  console.log(obj3.address.city);
+    // for (let i: number = 0; i < arr1.length; i++) {
+    //   if (arr1[i].hasOwnProperty("name")) {
+    //     nameArray.push(arr1[i].name);
+    //   }
+    // }
+    // return nameArray;
+  }
 
   return (
     <Box
@@ -150,7 +39,10 @@ const Review = () => {
       </Typography>
       <InfoCard
         title="Sample Code Output: "
-        description={"" + sampleFunction()}
+        description={
+          "" +
+          sampleFunction([{ a: 1 }, { name: "Jane" }, {}, { name: "Mark" }])
+        }
       />
       <InfoCard
         title="1. JavaScript Fundamentals"
@@ -516,6 +408,127 @@ const Review = () => {
 
   // const dog = new Dog();
   // dog.speak();
+
+  // //OBJECT DESTRUCTURING
+  // const user = { name: "Alex", age: 5, address: { city: "bulacan" } };
+
+  // const {
+  //   name,
+  //   age,
+  //   address: { city },
+  // } = user;
+  // console.log(name, age, city);
+
+  // //SPREAD OPERATOR
+  // const a = [1, 2, 3];
+  // const b = [4, 5, 6];
+  // const c = [...a, ...b];
+  // console.log(c);
+
+  // const newUser = { ...user };
+  // console.log(newUser);
+  // //REST PARAMETER
+  // function sum(...numbers: number[]) {
+  //   console.log(numbers);
+  // }
+  // sum(1, 5, 9);
+
+  // //ARRAY METHODS
+  // const numbers = [3, 3, 4, 5, 6];
+  // const doubled = numbers.map((item) => item * 2);
+  // console.log(doubled);
+  // console.log(numbers.filter((item) => item === 3));
+  // console.log(numbers.reduce((acc, item) => acc + item, 0));
+  // // reduce((accumulator, currentValue) => {}, initialValue);
+  // console.log(numbers.find((item) => item === 3));
+  // console.log(numbers.some((item) => item > 7));
+  // console.log(numbers.some((item) => item < 7));
+
+  // //SLICE VS SPLICE
+  // const arr1 = [1, 2, 3, 4, 5, 6];
+  // const arrSlice = arr1.slice(1, 4);
+  // console.log(arrSlice); //slice does not modify orig array
+  // arr1.splice(1, 2);
+  // console.log(arr1); //modifies orig array
+
+  // const users = [
+  //   { name: "Alex", age: 20 },
+  //   { name: "Sam", age: 16 },
+  //   { name: "John", age: 25 },
+  // ];
+
+  // console.log(users.filter((user) => user.age > 18).map((user) => user.name));
+
+  // //ASYNC CODE
+  // //callback function
+  // function greet(name: string, callback: any) {
+  //   console.log("Hello " + name);
+  //   callback();
+  // }
+
+  // greet("Alex", function () {
+  //   console.log("Welcome!");
+  // });
+
+  // setTimeout(() => {
+  //   console.log("Timer finished");
+  // }, 2000);
+
+  // //PROMISES
+  // const promise = new Promise((resolve, reject) => {
+  //   resolve("Success");
+  // });
+
+  // promise.then((result) => console.log(result));
+
+  // const fetchData = new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     resolve("Data received");
+  //   }, 1000);
+  // });
+
+  // fetchData.then((data) => {
+  //   console.log(data);
+  // });
+
+  // // ASYNC AWAIT
+
+  // function fetchDataNew() {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve("Data ploopy");
+  //     }, 1000);
+  //   });
+  // }
+
+  // async function newFetch() {
+  //   const results = await fetchDataNew();
+  //   console.log(results);
+  // }
+  // newFetch();
+
+  // //fixing reference by creating SHALLOW COPY
+  // const obj1 = { name: "Alex" };
+  // const obj2 = { ...obj1 };
+
+  // obj2.name = "John";
+  // console.log(obj1.name);
+
+  // const obj3 = {
+  //   name: "Alex",
+  //   address: {
+  //     city: "Bulacan",
+  //   },
+  // };
+
+  // const obj4 = { ...obj3 };
+
+  // // obj4.address.city = "Manila";
+
+  // console.log(obj3.address.city); //still outputs manila since nested values are still references
+  // const obj5 = structuredClone(obj3);
+  // obj5.address.city = "Manila";
+  // console.log(obj3.address.city);
 };
 
 export default Review;

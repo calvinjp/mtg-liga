@@ -42,6 +42,12 @@ function TopNavigationBar() {
         >
           Demos
         </Button>
+        <Button
+          sx={{ fontFamily: "Inter" }}
+          onClick={() => handleNavigate("pokedex")}
+        >
+          Pokedex
+        </Button>
       </Box>
     </Container>
   );
