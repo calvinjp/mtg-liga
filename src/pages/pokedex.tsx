@@ -5,17 +5,18 @@ import {
   getPokemonList,
   getPokemonSprite,
 } from "../api/utils";
+// import Select from "./select";
+
+export type Pokemon = {
+  name: string;
+  url: string;
+};
 
 const Pokedex = () => {
   const [data, setData] = useState<Pokemon[]>([]);
   const [selected, setSelected] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [sprite, setSprite] = useState<string>("");
-
-  type Pokemon = {
-    name: string;
-    url: string;
-  };
 
   useEffect(() => {
     //cant put async here since useeffect does not expect a promise
@@ -41,7 +42,7 @@ const Pokedex = () => {
     getDesc();
   }, [selected]);
 
-  function handeNext() {
+  function handleNext() {
     const currentIndex = data.findIndex((pokemon) => pokemon.name === selected);
 
     if (currentIndex === -1) return;
@@ -128,8 +129,17 @@ const Pokedex = () => {
           <img src={sprite} style={{ height: "450px", width: "450px" }}></img>
         </>
       )}
-      <button onClick={() => handeNext()}>Next</button>
+      <button onClick={() => handleNext()}>Next</button>
       <button onClick={() => handlePrev()}>Prev</button>
+      {/* <Select
+        data={data}
+        desc={description}
+        img={sprite}
+        selected={selected}
+        setSelected={setSelected}
+        handleNext={handleNext}
+        handlePrev={handlePrev}
+      /> */}
     </Box>
   );
 };
