@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import MagicCard from "../components/magic-card";
 
 type Card = {
   name: "string";
+  imageUrl: string;
 };
 const Magic = () => {
   const [data, setData] = useState<Card[]>([]);
@@ -18,7 +20,17 @@ const Magic = () => {
           return res.json();
         })
         .then((data) => {
-          setData(data.cards);
+          //remove duplicates
+          const seen = new Set();
+
+          const uniqueCards = [];
+          for (const card of data.cards) {
+            if (!seen.has(card.name)) {
+              seen.add(card.name);
+              uniqueCards.push(card);
+            }
+          }
+          setData(uniqueCards);
           setIsLoading(false);
         })
         .catch((err) => {
@@ -34,8 +46,8 @@ const Magic = () => {
 
   return (
     <>
-      {data.map((cards) => (
-        <h2>{cards.name}</h2>
+      {data.map((card) => (
+        <MagicCard name={card.name} imageUrl={card.imageUrl} />
       ))}
     </>
   );
