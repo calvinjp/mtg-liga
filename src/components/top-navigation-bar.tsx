@@ -48,6 +48,12 @@ function TopNavigationBar() {
         >
           Pokedex
         </Button>
+        <Button
+          sx={{ fontFamily: "Inter" }}
+          onClick={() => handleNavigate("mtg")}
+        >
+          MTG
+        </Button>
       </Box>
     </Container>
   );
