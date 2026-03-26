@@ -26,7 +26,7 @@ const Review = () => {
         padding: 10,
       }}
     >
-      {/* <Counter /> */}
+      <Counter />
       <Typography
         variant="h1"
         sx={{
