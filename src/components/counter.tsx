@@ -25,7 +25,7 @@ const Counter = () => {
       const userData = await getUserInfo(page);
       // const newArray = data.concat(userData); //concat creates a new array
       // setData(newArray);
-      setData((prev) => [...prev, ...userData]); //destructuring  also works, use prev instead of data from the state to avoid stale data
+      setData([...data, ...userData]); //destructuring  also works
     }
     appendNewUser();
   }, [page]);
